@@ -1,0 +1,16 @@
+---
+name: run tap-info
+on:
+  pull_request:
+
+jobs:
+  tap-info:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Set up Homebrew
+        id: set-up-homebrew
+        uses: Homebrew/actions/setup-homebrew@master
+
+      - name: Get local tap formulae
+        id: get-tap-formulae
+        run: brew tap-info --installed --json
